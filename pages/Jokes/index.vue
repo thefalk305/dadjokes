@@ -13,8 +13,10 @@
 import axios from 'axios';
 import Joke from '../../components/Joke';
 import SearchJokes from '../../components/SearchJokes';
+const page = Math.floor(Math.random() * 37);
 
 export default {
+
   component: {
     Joke,
     SearchJokes,
@@ -33,7 +35,8 @@ export default {
     };
 
     try {
-      const res = await axios.get("https://icanhazdadjoke.com/search", config);
+      const res = await axios.get(`https://icanhazdadjoke.com/search?term=&page=${page}`, config);
+      // const res = await axios.get(`https://icanhazdadjoke.com/search`, config);
       this.jokes = res.data.results
     } catch (err) {
       console.log(err)

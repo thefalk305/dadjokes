@@ -2,25 +2,31 @@
   <form @submit.prevent="onSubmit">
     <input type="text" v-model="text" placeholder="Search Jokes..." >
     <input type="submit" value="Search Jokes">
+    <div>Page: </div>
   </form>
 </template>
 
 <script>
-  export default {
-    name: "SearchJokes",
-    data() {
-      return {
-        test: ""
-      };
-    },
+// const props = ([page]);
+// console.log(props.page);
+// const page = 0;
 
-    methods: {
-      onSubmit() {
-        this.$emit("search-text", this.text);
-        this.text = "";
-      }
+export default {
+
+  name: "SearchJokes",
+  data() {
+    return {
+      text: ""
+    };
+  },
+
+  methods: {
+    onSubmit() {
+      this.$emit("search-text", this.text);
+      this.text = "";
     }
-  };
+  }
+};
 </script>
 
 <style scoped>
